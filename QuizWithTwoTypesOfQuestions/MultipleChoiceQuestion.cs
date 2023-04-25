@@ -2,20 +2,23 @@
 {
     internal class MultipleChoiceQuestion : Question
     {
-        private readonly string _question;
+
         private readonly string[] _answers;
         private readonly int _correctAnswerNo;
 
-        public MultipleChoiceQuestion(string question, int correctAnswerNo, params string[] answers)
+        public MultipleChoiceQuestion(
+            string question,
+            int correctAnswerNo,
+            params string[] answers)
+            : base(question)
         {
-            _question = question;
             _correctAnswerNo = correctAnswerNo;
             _answers = answers;
         }
 
         public override bool Run()
         {
-            Console.WriteLine(_question);
+            base.Run();
             Console.WriteLine("Svaralternativer:");
             for (var index = 0; index < _answers.Length; index++)
             {
